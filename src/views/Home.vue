@@ -1,5 +1,14 @@
 <template>
   <div class="home">
+    <button @click="handleToList">to list</button>
+    <input
+      class="input"
+      ref="input"
+      v-model="inputData"
+      type="number"
+      @focus="focus"
+      readonly
+    />
     <img
       alt="snapshoot enter"
       src="../assets/logo.png"
@@ -7,13 +16,6 @@
     />
     <router-view name="Snapshoot"></router-view>
     <router-view name="HelloWorld"></router-view>
-    <input
-      ref="input"
-      v-model="inputData"
-      type="number"
-      @focus="focus"
-      autofocus
-    />
   </div>
 </template>
 
@@ -25,22 +27,32 @@ export default {
   },
   data() {
     return {
-      inputData: '123'
+      inputData: ''
     }
   },
   mounted() {
     console.log('q', this.query)
-    this.$refs.input.focus()
+    // this.$refs.input.focus()
+    console.log('this.$slots', this.$slots)
   },
   methods: {
     handleSnapshootEnter() {
       this.$router.push('/snapshoot')
     },
     focus(e) {
-      // document.activeElement.blur()
       e.preventDefault()
+      document.activeElement.blur()
       console.log(e)
+    },
+    handleToList() {
+      this.$router.push('List')
     }
   }
 }
 </script>
+
+<style lang="stylus">
+.input {
+  border: 1px solid #ccc;
+}
+</style>

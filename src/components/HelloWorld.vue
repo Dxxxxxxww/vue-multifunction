@@ -107,6 +107,11 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  methods: {
+    sayHello() {
+      console.log('hello')
+    }
   }
 }
 </script>

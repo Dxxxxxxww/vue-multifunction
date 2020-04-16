@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Snapshoot from '@/components/Snapshoot.vue'
 import HelloWorld from '@/components/HelloWorld.vue'
 
+// 解决相同路径跳转报错
 const routerPush = VueRouter.prototype.push
 VueRouter.prototype.push = function push(to) {
   return routerPush.call(this, to).catch(error => error) // console.log(error)
@@ -35,12 +36,18 @@ const routes = [
   {
     path: '/about/:id',
     name: 'About',
+    // 如果 props 被设置为 true，route.params 将会被设置为组件属性。
     props: true,
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ '../views/About.vue')
+  },
+  {
+    path: '/list',
+    name: 'List',
+    component: () => import(/* webpackChunkName: "list" */ '@/views/list-key')
   }
 ]
 
