@@ -10,5 +10,6 @@ module.exports = {
       .set('@', resolve('src'))
       .set('@components', resolve('src/components'))
       .set('@static', resolve('src/static'))
+      .set('styles', resolve('src/styles'))
   }
 }

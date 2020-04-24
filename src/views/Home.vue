@@ -14,16 +14,22 @@
       src="../assets/logo.png"
       @click="handleSnapshootEnter"
     />
+    <v-keyboard></v-keyboard>
     <router-view name="Snapshoot"></router-view>
     <router-view name="HelloWorld"></router-view>
   </div>
 </template>
 
 <script>
+import VKeyboard from '@components/virtual-keyboard'
+
 export default {
   name: 'Home',
   props: {
     query: String
+  },
+  components: {
+    VKeyboard
   },
   data() {
     return {

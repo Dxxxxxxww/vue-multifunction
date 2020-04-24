@@ -7,6 +7,8 @@ import store from './store'
 import { a } from './utils/util'
 import './components/global/RenderFunction'
 
+import 'styles/index.styl'
+
 console.log('a---', a())
 Vue.config.productionTip = false
 
