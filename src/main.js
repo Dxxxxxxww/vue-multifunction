@@ -6,6 +6,7 @@ import router from './router'
 import store from './store'
 import { a } from './utils/util'
 import './components/global/RenderFunction'
+import './directive/index'
 
 import 'styles/index.styl'
 
