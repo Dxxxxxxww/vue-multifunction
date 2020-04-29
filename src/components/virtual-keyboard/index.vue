@@ -176,6 +176,7 @@ textarea {
   width: 100vw;
   margin-bottom: 2vh;
   padding: 0 0 4px 4px;
+  box-sizing: border-box;
   background-color: #ddd;
 }
 .left {
