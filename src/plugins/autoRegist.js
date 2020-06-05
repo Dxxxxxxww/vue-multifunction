@@ -8,14 +8,14 @@ const requireComponent = require.context(
   // 是否查询其子目录
   true,
   // 匹配基础组件文件名的正则表达式
-  /\w+\.js$/
+  /\w+\.js|\w+\.vue|$/
 )
 
 console.log(requireComponent.keys())
 requireComponent.keys().forEach(fileName => {
   // 获取组件配置
   const componentConfig = requireComponent(fileName)
-  console.log(fileName, requireComponent(fileName))
+  // console.log(fileName, requireComponent(fileName))
   // 获取组件的 PascalCase 命名
   const componentName = upperFirst(
     camelCase(

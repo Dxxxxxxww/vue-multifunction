@@ -1,19 +1,8 @@
 <template>
   <div class="home">
+    <h1>VKeyboard</h1>
     <button @click="handleToList">to list</button>
-    <input
-      class="input"
-      ref="input"
-      v-model="inputData"
-      type="number"
-      @focus="focus"
-      readonly
-    />
-    <img
-      alt="snapshoot enter"
-      src="../assets/logo.png"
-      @click="handleSnapshootEnter"
-    />
+    <div @click="handleSnapshootEnter">to child route</div>
     <v-keyboard></v-keyboard>
     <router-view name="Snapshoot"></router-view>
     <router-view name="HelloWorld"></router-view>
@@ -38,17 +27,11 @@ export default {
   },
   mounted() {
     console.log('q', this.query)
-    // this.$refs.input.focus()
     console.log('this.$slots', this.$slots)
   },
   methods: {
     handleSnapshootEnter() {
       this.$router.push('/snapshoot')
-    },
-    focus(e) {
-      e.preventDefault()
-      document.activeElement.blur()
-      console.log(e)
     },
     handleToList() {
       this.$router.push('List')

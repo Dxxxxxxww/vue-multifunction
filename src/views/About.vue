@@ -7,6 +7,7 @@
       msg="Welcome to Your Vue.js App"
     />
     <render-function :level="1" :innerProp="'abcd'"></render-function>
+    <el-input v-model="num.num" type="text" v-number-input></el-input>
     <button @click="handleToList">to list</button>
   </div>
 </template>
@@ -21,7 +22,10 @@ export default {
   },
   data() {
     return {
-      toggle: false
+      toggle: false,
+      num: {
+        num: ''
+      }
     }
   },
   components: {

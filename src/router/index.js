@@ -48,6 +48,11 @@ const routes = [
     path: '/list',
     name: 'List',
     component: () => import(/* webpackChunkName: "list" */ '@/views/list-key')
+  },
+  {
+    path: '/no-render',
+    name: 'NoRender',
+    component: () => import(/* webpackChunkName: "list" */ '@/views/no-render')
   }
 ]
 

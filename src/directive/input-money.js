@@ -5,33 +5,11 @@ function onInput(el, ele, binding, vnode) {
   //   // 只保留数字
   //   ele.value = ele.value.replace(/[^\d]/g, '')
   // }
-  function handle1() {
-    // 只保留数字
-    // ele.value = ele.value.replace(/[^\d]/g, '')
-    // 支持浮点数
-    // modifiers为修饰符对象，传入了float，则其float属性为true
-    let val = ele.value
-    // modifiers为修饰符对象，传入了float，则其float属性为true
-    if (binding.modifiers.float) {
-      // 清除"数字"和"."以外的字符
-      val = val.replace(/[^\d.]/g, '')
-      // 只保留第一个“点”号, 清除多余的
-      const idx = val.indexOf('.')
-      // 当为浮点数时，或者.不是最后一位时(.是最后一位执行判断里的代码没有意义，结果一样)
-      if (!(idx === -1 || idx === val.length - 1)) {
-        val = val.substr(0, idx) + '.' + val.substr(idx + 1).replace(/\./g, '')
-      }
-      // 第一个字符如果是.号，则补充前缀0
-      val = val.replace(/^\./g, '0.')
-    } else {
-      val = ele.value.replace(/[^\d]/g, '')
-      // 这里是支持负数
-      // val = ele.value.replace(/[^-\d]/g, '').replace(/^(-)*(\d*)$/, '$1$2')
-    }
-    ele.value = val
-  }
-  // 支持小数位最大位数限制
-  // function handle2() {
+  // function handle1() {
+  //   // 只保留数字
+  //   // ele.value = ele.value.replace(/[^\d]/g, '')
+  //   // 支持浮点数
+  //   // modifiers为修饰符对象，传入了float，则其float属性为true
   //   let val = ele.value
   //   // modifiers为修饰符对象，传入了float，则其float属性为true
   //   if (binding.modifiers.float) {
@@ -39,40 +17,64 @@ function onInput(el, ele, binding, vnode) {
   //     val = val.replace(/[^\d.]/g, '')
   //     // 只保留第一个“点”号, 清除多余的
   //     const idx = val.indexOf('.')
+  //     // 当为浮点数时，或者.不是最后一位时(.是最后一位执行判断里的代码没有意义，结果一样)
   //     if (!(idx === -1 || idx === val.length - 1)) {
   //       val = val.substr(0, idx) + '.' + val.substr(idx + 1).replace(/\./g, '')
   //     }
   //     // 第一个字符如果是.号，则补充前缀0
   //     val = val.replace(/^\./g, '0.')
-  //     if (typeof binding.value !== 'undefined') {
-  //       // 期望保留的最大小数位数
-  //       let pointKeep = 0
-  //       if (
-  //         typeof binding.value === 'string' ||
-  //         typeof binding.value === 'number'
-  //       ) {
-  //         pointKeep = parseInt(binding.value)
-  //       }
-  //       if (!isNaN(pointKeep)) {
-  //         if (!Number.isInteger(pointKeep) || pointKeep < 0) {
-  //           pointKeep = 0
-  //         }
-  //         const str = '^(\\d+)\\.(\\d{' + pointKeep + '}).*$'
-  //         const reg = new RegExp(str)
-  //         if (pointKeep === 0) {
-  //           // 不需要小数点
-  //           val = val.replace(reg, '$1')
-  //         } else {
-  //           // 通过正则保留小数点后指定的位数
-  //           val = val.replace(reg, '$1.$2')
-  //         }
-  //       }
-  //     } else {
-  //       val = ele.value.replace(/[^\d]/g, '')
-  //     }
-  //     ele.value = val
+  //   } else {
+  //     val = ele.value.replace(/[^\d]/g, '')
+  //     // 这里是支持负数
+  //     // val = ele.value.replace(/[^-\d]/g, '').replace(/^(-)*(\d*)$/, '$1$2')
   //   }
+  //   ele.value = val
   // }
+  // 支持小数位最大位数限制
+  function handle2() {
+    let val = ele.value
+    // modifiers为修饰符对象，传入了float，则其float属性为true
+    if (binding.modifiers.float) {
+      // 清除"数字"和"."以外的字符
+      val = val.replace(/[^\d.]/g, '')
+      // 只保留第一个“点”号, 清除多余的
+      const idx = val.indexOf('.')
+      if (!(idx === -1 || idx === val.length - 1)) {
+        val = val.substr(0, idx) + '.' + val.substr(idx + 1).replace(/\./g, '')
+      }
+      // 第一个字符如果是.号，则补充前缀0
+      val = val.replace(/^\./g, '0.')
+      if (typeof binding.value !== 'undefined') {
+        // 期望保留的最大小数位数
+        let pointKeep = 0
+        if (
+          typeof binding.value === 'string' ||
+          typeof binding.value === 'number'
+        ) {
+          pointKeep = parseInt(binding.value)
+        }
+        if (!isNaN(pointKeep)) {
+          if (!Number.isInteger(pointKeep) || pointKeep < 0) {
+            pointKeep = 0
+          }
+          const str = '^(\\d+)\\.(\\d{' + pointKeep + '}).*$'
+          const reg = new RegExp(str)
+          if (pointKeep === 0) {
+            // 不需要小数点
+            val = val.replace(reg, '$1')
+          } else {
+            // 通过正则保留小数点后指定的位数
+            val = val.replace(reg, '$1.$2')
+          }
+        }
+      } else {
+        val = ele.value.replace(/[^\d]/g, '')
+      }
+    } else {
+      val = ele.value.replace(/[^\d]/g, '')
+    }
+    ele.value = val
+  }
   // // 支持负数
   // function handle3() {
   //   let val = ele.value
@@ -191,7 +193,7 @@ function onInput(el, ele, binding, vnode) {
   //     ele.value = val
   //   }
   // }
-  return handle1
+  return handle2
 }
 const numberInput = {
   bind(el, binding, vnode) {
