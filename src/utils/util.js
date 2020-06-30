@@ -29,3 +29,21 @@ export function channelIdentify() {
   }
   return 'other'
 }
+
+export function debounce(fn, wait, immediate) {
+  let timer = null
+
+  return function() {
+    const args = arguments
+    const context = this
+
+    if (immediate && !timer) {
+      fn.apply(context, args)
+    }
+
+    if (timer) clearTimeout(timer)
+    timer = setTimeout(() => {
+      fn.apply(context, args)
+    }, wait)
+  }
+}

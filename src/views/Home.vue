@@ -40,7 +40,7 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 .input {
   border: 1px solid #ccc;
 }

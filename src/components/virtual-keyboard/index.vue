@@ -1,6 +1,6 @@
 <template>
   <div class="wa">
-    <input type="text" id="input" v-model="value" />
+    <input type="tel" id="input" v-model="value" maxlength="15" />
     <div class="container">
       <div class="keyboard-wapper" id="container">
         <div class="left">
@@ -67,6 +67,9 @@ export default {
     },
     inputMoney(e, v) {
       e.target.classList.remove('actived')
+      if (this.value.length > 14) {
+        return
+      }
       const num = v
       let money = this.value
       let value = money
@@ -91,7 +94,7 @@ export default {
         } else {
           money = parseFloat(value)
             .toString()
-            .substr(0, 16)
+            .substr(0, 15)
           log('e')
         }
       }

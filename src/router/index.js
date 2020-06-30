@@ -4,6 +4,8 @@ import Home from '../views/Home.vue'
 import Snapshoot from '@/components/Snapshoot.vue'
 import HelloWorld from '@/components/HelloWorld.vue'
 
+const Drawer = () => import('@/views/drawer/Drawer.vue')
+
 // 解决相同路径跳转报错
 const routerPush = VueRouter.prototype.push
 VueRouter.prototype.push = function push(to) {
@@ -53,6 +55,11 @@ const routes = [
     path: '/no-render',
     name: 'NoRender',
     component: () => import(/* webpackChunkName: "list" */ '@/views/no-render')
+  },
+  {
+    path: '/drawer',
+    name: 'Drawer',
+    component: Drawer
   }
 ]
 
