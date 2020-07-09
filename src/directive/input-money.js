@@ -65,6 +65,7 @@ function onInput(el, ele, binding, vnode) {
           } else {
             // 通过正则保留小数点后指定的位数
             val = val.replace(reg, '$1.$2')
+            console.log('val', val)
           }
         }
       } else {
@@ -74,6 +75,7 @@ function onInput(el, ele, binding, vnode) {
       val = ele.value.replace(/[^\d]/g, '')
     }
     ele.value = val
+    console.log('abac', val, ele.value)
   }
   // // 支持负数
   // function handle3() {

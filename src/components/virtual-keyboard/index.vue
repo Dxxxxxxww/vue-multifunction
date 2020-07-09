@@ -52,7 +52,7 @@
 </template>
 
 <script>
-const { log } = console
+// const { log } = console
 export default {
   name: 'VKeyboard',
   data() {
@@ -75,27 +75,22 @@ export default {
       let value = money
       if (num === '.') {
         if (value === '') {
-          log('a')
           money = '0.'
         } else {
           if (value.includes('.')) {
-            log('b')
             money = value
           } else {
-            log('c')
             money = value.toString() + num.toString()
           }
         }
       } else {
         value = value.toString() + num.toString()
         if (value.includes('.')) {
-          log('d')
           money = value.substr(0, value.indexOf('.') + 3)
         } else {
           money = parseFloat(value)
             .toString()
             .substr(0, 15)
-          log('e')
         }
       }
       this.value = money

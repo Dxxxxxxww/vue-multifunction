@@ -14,11 +14,13 @@
       @input="handleInput"
     ></el-input>
     <button @click="handleToList">to list</button>
+    <input-money :fee.sync="form.totalFee"></input-money>
   </div>
 </template>
 
 <script type="module">
 import HelloWorld from '@/components/HelloWorld.vue'
+import InputMoney from '@/components/input-money/InputMoney.vue'
 import Vue from 'vue'
 import { debounce } from '@/utils/util.js'
 
@@ -35,11 +37,15 @@ export default {
       toggle: false,
       num: {
         num: ''
+      },
+      form: {
+        totalFee: ''
       }
     }
   },
   components: {
-    HelloWorld
+    HelloWorld,
+    InputMoney
   },
   mounted() {
     console.log('id', this.id)
@@ -50,6 +56,11 @@ export default {
     //   value = value.toString();
     //   return value.charAt(0).toUpperCase() + value.slice(1);
     // }
+  },
+  watch: {
+    'form.totalFee': function(v) {
+      console.log(v)
+    }
   },
   methods: {
     handleClickTitle() {

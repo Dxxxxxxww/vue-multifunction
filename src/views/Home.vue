@@ -26,8 +26,8 @@ export default {
     }
   },
   mounted() {
-    console.log('q', this.query)
-    console.log('this.$slots', this.$slots)
+    // console.log('q', this.query)
+    // console.log('this.$slots', this.$slots)
   },
   methods: {
     handleSnapshootEnter() {
