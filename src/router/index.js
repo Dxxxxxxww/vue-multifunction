@@ -5,6 +5,8 @@ import Snapshoot from '@/components/Snapshoot.vue'
 import HelloWorld from '@/components/HelloWorld.vue'
 
 const Drawer = () => import('@/views/drawer/Drawer.vue')
+const UseVant = () => import('@/views/drawer/UseVant.vue')
+const Blink = () => import('@/views/blink/Blink.vue')
 
 // 解决相同路径跳转报错
 const routerPush = VueRouter.prototype.push
@@ -59,7 +61,13 @@ const routes = [
   {
     path: '/drawer',
     name: 'Drawer',
-    component: Drawer
+    component: Drawer,
+    children: [{ path: 'use-vant', component: UseVant }]
+  },
+  {
+    path: '/blink',
+    name: 'Blink',
+    component: Blink
   }
 ]
 

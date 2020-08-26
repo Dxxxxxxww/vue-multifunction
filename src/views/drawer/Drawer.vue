@@ -12,12 +12,15 @@
     <transition name="fade">
       <div class="test" v-show="showRef"></div>
     </transition>
+    <router-link to="/drawer/use-vant">to use-vant</router-link>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 import MyDialog from '@components/my-dialog/MyDialog'
 import Child from '@components/test-component-child/Child'
+import { obj } from '@/utils/testExportObj'
 
 export default {
   name: 'Drawer',
@@ -30,6 +33,9 @@ export default {
       testAttr: 'testAttr',
       showRef: true
     }
+  },
+  mounted() {
+    console.log(obj)
   },
   methods: {
     // $attrs $listeners 实现。 主要用于爷孙间的通信

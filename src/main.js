@@ -9,6 +9,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import './components/global/RenderFunction'
 import './directive/index'
 import './filters/index'
+import '@/utils/util'
 
 import 'styles/index.styl'
 

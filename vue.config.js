@@ -11,5 +11,17 @@ module.exports = {
       .set('@components', resolve('src/components'))
       .set('@static', resolve('src/static'))
       .set('styles', resolve('src/styles'))
+  },
+  css: {
+    loaderOptions: {
+      less: {
+        lessOptions: {
+          modifyVars: {
+            'text-color': '#111',
+            'button-primary-background-color': '#FF8d00'
+          }
+        }
+      }
+    }
   }
 }

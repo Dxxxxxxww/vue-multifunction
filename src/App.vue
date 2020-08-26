@@ -1,11 +1,12 @@
 <template>
-  <div id="app">
+  <div id="appabcd">
     <div class="nav">
-      <router-link :to="{ path: '/', query: { q: '123' } }">Home</router-link>|
-      <router-link to="/about/123">About</router-link>|
+      哈哈
+      <!-- <router-link :to="{ path: '/', query: { q: '123' } }">Home</router-link>|
+      <router-link to="/about/123">About</router-link>| -->
       <!-- <router-link to="/snapshoot">HomeChildren</router-link> -->
-      <router-link to="/no-render">no-render-comp</router-link>|
-      <router-link to="/drawer">drawer</router-link>
+      <!-- <router-link to="/no-render">no-render-comp</router-link>|
+      <router-link to="/drawer">drawer</router-link> -->
     </div>
     <router-view />
   </div>

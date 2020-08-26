@@ -1,3 +1,7 @@
+import { obj } from './testExportObj'
+
+obj.a = a
+
 export function a() {
   return 'a'
 }
