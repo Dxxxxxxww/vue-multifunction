@@ -4,7 +4,7 @@ import App from './App.vue'
 import './plugins/index'
 import router from './router'
 import store from './store'
-import ElementUI from 'element-ui'
+// import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import './components/global/RenderFunction'
 import './directive/index'
@@ -15,7 +15,7 @@ import 'styles/index.styl'
 
 Vue.config.productionTip = false
 
-Vue.use(ElementUI)
+// Vue.use(ElementUI)
 
 new Vue({
   router,

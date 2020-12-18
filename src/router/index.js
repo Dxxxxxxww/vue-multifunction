@@ -7,6 +7,8 @@ import HelloWorld from '@/components/HelloWorld.vue'
 const Drawer = () => import('@/views/drawer/Drawer.vue')
 const UseVant = () => import('@/views/drawer/UseVant.vue')
 const Blink = () => import('@/views/blink/Blink.vue')
+const Responsive = () => import('@/views/responsive/Responsive.vue')
+const TestSet = () => import('@/views/test-set/TestSet.vue')
 
 // 解决相同路径跳转报错
 const routerPush = VueRouter.prototype.push
@@ -68,6 +70,16 @@ const routes = [
     path: '/blink',
     name: 'Blink',
     component: Blink
+  },
+  {
+    path: '/responsive',
+    name: 'Responsive',
+    component: Responsive
+  },
+  {
+    path: '/test-set',
+    name: 'TestSet',
+    component: TestSet
   }
 ]
 
@@ -76,3 +88,12 @@ const router = new VueRouter({
 })
 
 export default router
+
+// 'import',
+//   {
+//     libraryName: 'vant',
+//     libraryDirectory: 'es',
+//     // 指定样式路径
+//     style: name => `${name}/style/less`
+//   },
+//   'vant'

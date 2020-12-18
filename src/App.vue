@@ -1,5 +1,6 @@
 <template>
-  <div id="appabcd">
+  <span id="appabcd">
+    <InputMoney></InputMoney>
     <div class="nav">
       哈哈
       <!-- <router-link :to="{ path: '/', query: { q: '123' } }">Home</router-link>|
@@ -9,8 +10,19 @@
       <router-link to="/drawer">drawer</router-link> -->
     </div>
     <router-view />
-  </div>
+  </span>
 </template>
+
+<script>
+import InputMoney from '@/components/input-money/InputMoney'
+
+export default {
+  name: 'AppAbcd',
+  components: {
+    InputMoney
+  }
+}
+</script>
 
 <style lang="stylus">
 #app

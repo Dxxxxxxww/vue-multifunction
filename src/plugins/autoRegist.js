@@ -11,11 +11,11 @@ const requireComponent = require.context(
   /\w+\.js|\w+\.vue|$/
 )
 
-console.log(requireComponent.keys())
+// console.log(requireComponent.keys())
 requireComponent.keys().forEach(fileName => {
   // 获取组件配置
   const componentConfig = requireComponent(fileName)
-  // console.log(fileName, requireComponent(fileName))
+  // console.log(fileName, '---', requireComponent(fileName))
   // 获取组件的 PascalCase 命名
   const componentName = upperFirst(
     camelCase(
