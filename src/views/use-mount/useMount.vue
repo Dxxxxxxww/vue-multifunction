@@ -19,7 +19,7 @@ export default {
     changeTask() {
       const DiaConstructor = Vue.extend(Dia)
       const dia = new DiaConstructor({
-        el: document.createElement('div')
+        el: document.createElement('div') // 或者实例化时不传 el 在下面调用 $mount() 来让 Vue 创建一个 el
         // propsData: {
         //   parentTitle: 'title abc',
         //   parentMsg: 'msg def'
@@ -36,6 +36,7 @@ export default {
       dia.beforeClose = (num) => {
         console.log(num)
       }
+      // dia.$mount()  // 或者实例化时不传 el，在 appendChild 之前调用 $mount() 来让 Vue 创建一个 el
       document.body.appendChild(dia.$el)
     }
   }
