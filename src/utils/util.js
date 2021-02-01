@@ -51,3 +51,23 @@ export function debounce(fn, wait, immediate) {
     }, wait)
   }
 }
+
+export const getPopeBtn = pid => {
+  var popedoms2 = ''
+  var buttonData = []
+  var sStorage = window.sessionStorage
+  popedoms2 = sStorage.getItem('buttons')
+  if (popedoms2) {
+    var data = JSON.parse(popedoms2)
+
+    var length = data.length
+    for (var i = 0; i < length; i++) {
+      for (var j = 0; j < pid.length; j++) {
+        if (data[i].popedomParentId == pid[j]) {
+          buttonData.push(data[i])
+        }
+      }
+    }
+  }
+  return buttonData
+}
